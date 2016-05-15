@@ -1,0 +1,66 @@
+---
+- name: Install requirements
+  pacman:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  with_items:
+  - midori
+  - matchbox-window-manager
+  - xf86-video-fbdev
+  - xorg-xinit
+  - xorg-server
+
+- name: Create user openslides_projector
+  become: yes
+  user:
+    name: openslides_projector
+    state: present
+
+- name: Create .xinitrc
+  become: yes
+  become_user: openslides_projector
+  copy:
+    dest: ~/.xinitrc
+    content: |
+      midori  -e Fullscreen -a http://localhost/projector &
+      exec matchbox-window-manager -use_titlebar no -use_cursor no
+
+- name: Create .bash_profile
+  become: yes
+  become_user: openslides_projector
+  copy:
+    dest: ~/.bash_profile
+    content: |
+      sleep 10  # this should be done in systemd
+      [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
+- name: Ensures /etc/systemd/system/getty@tty1.service.d/ dir exists
+  file:
+    path: /etc/systemd/system/getty@tty1.service.d/
+    state: directory
+
+- name: Autologin
+  become: yes
+  copy:
+    dest: /etc/systemd/system/getty@tty1.service.d/override.conf
+    content: |
+      [Unit]
+      After=openslides.service
+      Requires=openslides.service
+      [Service]
+      ExecStart=
+      ExecStart=-/usr/bin/agetty --autologin openslides_projector --noclear %I $TERM
+  register: createAutologinSystemFile
+
+- name: Reload systemd units
+  when: createAutologinSystemFile.changed
+  command: systemctl daemon-reload
+  become: yes
+
+- name: Configure raspi boot conf
+  become: yes
+  lineinfile:
+    dest: /boot/config.txt
+    regexp: ^disable_overscan=
+    line: disable_overscan=1

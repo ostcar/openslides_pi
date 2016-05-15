@@ -1,0 +1,14 @@
+---
+- hosts: openslides_pi
+
+  vars:
+    openslides_secure_key: TestSecureKey  # Secure Key for django. Should be changed
+    openslides_nginx_global: yes  # Let openslides listen on any nginx domain
+    pi_wlan_ap_ssid: openslides
+    pi_wlan_ap_password: ""  # Create an open wlan. Set a password for a wpa2 protected wlan
+    pi_wlan_ap_dns_entries: {"#": "{{ pi_wlan_ap_ip }}"}  # Redirect all trafic to the openslides instance
+
+  roles:
+  - openslides
+  - pi_wlan_ap
+  - openslides_projector

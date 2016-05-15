@@ -1,0 +1,8 @@
+---
+pi_wlan_ap_ssid: support_snowden
+pi_wlan_ap_channel: 1
+pi_wlan_ap_no_password: false
+pi_wlan_ap_password: ThisIsNoPublicWlan  # No wlan encryption if the password is empty
+pi_wlan_ap_ip: 192.168.42.1
+pi_wlan_ap_dhcp_range: 192.168.42.2,192.168.42.254
+pi_wlan_ap_dns_entries: {}
