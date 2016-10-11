@@ -1,0 +1,4 @@
+---
+- src: OpenSlides.OpenSlides
+- src: ostcar.openslides_wlan_ap
+- src: ostcar.openslides_projector
