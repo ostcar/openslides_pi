@@ -22,7 +22,8 @@ Install
 
 https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
 
-2. Boot the raspberry pi. Findout it's IP-Address set it in the hosts file (last line).
+2. Boot the raspberry pi and connect it to you network. Findout it's IP-Address
+   set it in the hosts file (last line).
 
 3. Prepare the raspberry pi with the following command:
 

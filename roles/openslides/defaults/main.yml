@@ -1,8 +1,0 @@
----
-openslides_settings_path: /etc/openslides
-openslides_user_data_path: /usr/local/lib/openslides
-openslides_secure_key: false
-openslides_nginx_domains: []
-openslides_nginx_global: false
-openslides_port: 8400
-openslides_listen_global: false

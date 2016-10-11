@@ -6,7 +6,12 @@
 
   tasks:
   - name: Install python2
-    raw: pacman --noconfirm -S python2
+    raw: pacman --noconfirm -Sy python2
+
+  - name: Updrade system
+    pacman:
+      update_cache: yes
+      upgrade: yes
 
   - name: Create /root/.ssh
     file:

@@ -4,4 +4,4 @@ openslides_pi_init  ansible_user=alarm ansible_ssh_pass=alarm ansible_become_pas
 
 [raspi:vars]
 ansible_python_interpreter=python2
-ansible_host=10.42.0.28
+ansible_host=10.42.0.70
