@@ -13,4 +13,4 @@
   roles:
   - OpenSlides.OpenSlides
   - ostcar.openslides_wlan_ap
-  #- ostcar.openslides_projector
+  - ostcar.openslides_projector
