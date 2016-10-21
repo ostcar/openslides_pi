@@ -1,6 +1,7 @@
 [raspi]
 openslides_pi       ansible_user=root
-openslides_pi_init  ansible_user=alarm ansible_ssh_pass=alarm ansible_become_pass=root
+openslides_pi_init_archlinux  ansible_user=alarm ansible_ssh_pass=alarm ansible_become_pass=root
+openslides_pi_init_raspberry  ansible_user=pi ansible_ssh_pass=raspberry ansible_become_pass=root
 
 [raspi:vars]
 ansible_python_interpreter=python2

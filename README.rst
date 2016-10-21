@@ -15,28 +15,37 @@ either with an wlan-stick or without the wlan option.
 
 You have to install ansible and (for the Step 4 in the install instructions) sshpass
 
+This script works either with Archlinux Arm or with Raspbian. To begin you have
+to install one of this distributions.
+
+Archlinux: https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
+
+Raspbian: https://www.raspberrypi.org/documentation/installation/installing-images/README.md
+
 Install
 -------
 
-1. Install Archlinux Arm using this instructions
-
-https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
-
-2. Boot the raspberry pi and connect it to you network. Findout it's IP-Address
+1. Boot the raspberry pi and connect it to you network. Findout it's IP-Address
    set it in the hosts file (last line).
 
-3. Download the required ansible rolls:
+2. Download the required ansible rolls:
 
 $ ansible-galaxy install -r requirements.yml
 
-4. Prepare the raspberry pi with the following command:
+3. Prepare the raspberry pi with the following command:
 
-$ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts openslides_pi_init.yml
+For Archlinux:
 
-5. Open openslides_pi.yml and set the variables as you wish.
+$ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts openslides_pi_init_archlinux.yml
 
-6. Then call
+For Raspbian:
+
+$ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts openslides_pi_init_raspbian.yml
+
+4. Open openslides_pi.yml and set the variables as you wish.
+
+5. Then call
 
 $ ansible-playbook -i hosts openslides_pi.yml
 
-7. Connect a projector to the hdmi port of the raspberry pi and reboot it.
+6. Connect a projector to the hdmi port of the raspberry pi and reboot it.
