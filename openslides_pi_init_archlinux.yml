@@ -1,0 +1,40 @@
+---
+- hosts: openslides_pi_init_archlinux
+  gather_facts: False
+  become: yes
+  become_method: su
+
+  tasks:
+  - name: Install python2
+    raw: pacman --noconfirm -Sy python2
+
+  - name: Updrade system (this can take some time)
+    pacman:
+      update_cache: yes
+      upgrade: yes
+
+  - name: Create /root/.ssh
+    file:
+      path: /root/.ssh
+      state: directory
+      mode: 0700
+
+  - name: Copy ssh key to root account
+    copy:
+      dest: /root/.ssh/authorized_keys
+      mode: 0700
+      src: ~/.ssh/id_rsa.pub
+
+  - name: Dissallow PasswordAuthentication for ssh
+    lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: ^\#?PasswordAuthentication
+      line: PasswordAuthentication no
+    notify:
+    - restart sshd
+
+  handlers:
+  - name: restart sshd
+    service:
+      name: sshd
+      state: restarted
