@@ -11,6 +11,6 @@
     pi_wlan_ap_dns_entries: {"#": "{{ pi_wlan_ap_ip }}"}  # Redirect all trafic to the openslides instance
 
   roles:
-  - openslides
-  #- ostcar.openslides_wlan_ap
-  #- ostcar.openslides_projector
+  - OpenSlides.OpenSlides
+  - ostcar.openslides_wlan_ap
+  - ostcar.openslides_projector

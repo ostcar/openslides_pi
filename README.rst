@@ -36,11 +36,11 @@ $ ansible-galaxy install -r requirements.yml
 
 For Archlinux:
 
-$ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts openslides_pi_init_archlinux.yml
+$ ansible-playbook -i hosts openslides_pi_init_archlinux.yml
 
 For Raspbian:
 
-$ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts openslides_pi_init_raspbian.yml
+$ ansible-playbook -i hosts openslides_pi_init_raspbian.yml
 
 4. Open openslides_pi.yml and set the variables as you wish.
 
