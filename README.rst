@@ -36,7 +36,7 @@ Install
    
    ``ssh-keygen``
    
-   Agree to all questions of ssh-keygen.
+   Agree to all questions of ssh-keygen. Raspbian also requires you to enable the SSH server in ``sudo raspi-config``.
 
 4. Download the required ansible rolls:
    ``$ ansible-galaxy install -r requirements.yml``
