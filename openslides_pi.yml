@@ -6,6 +6,7 @@
     openslides_nginx_global: yes  # Let openslides listen on any nginx domain
     openslides_worker_count: 5
     openslides_use_git: true
+	openslides_version: 2.3
     pi_wlan_ap_ssid: openslides
     pi_wlan_ap_password: ""  # Create an open wlan. Set a password for a wpa2 protected wlan
     pi_wlan_ap_dns_entries: {"#": "{{ pi_wlan_ap_ip }}"}  # Redirect all trafic to the openslides instance

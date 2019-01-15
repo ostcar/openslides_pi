@@ -3,7 +3,7 @@
   become: yes
 
   tasks:
-  - name: Updrade system (this can take some time)
+  - name: Upgrade system (this can take some time)
     apt:
       update_cache: yes
       upgrade: dist
@@ -20,16 +20,16 @@
       mode: 0700
       src: ~/.ssh/id_rsa.pub
 
-  - name: Dissallow PasswordAuthentication for ssh
+  - name: Disallow PasswordAuthentication for ssh
     lineinfile:
       dest: /etc/ssh/sshd_config
       regexp: ^\#?PasswordAuthentication
       line: PasswordAuthentication no
     notify:
-    - restart sshd
+    - restart ssh
 
   handlers:
-  - name: restart sshd
+  - name: restart ssh
     service:
-      name: sshd
+      name: ssh
       state: restarted
