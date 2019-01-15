@@ -33,6 +33,7 @@ Install
 3. Make sure you have SSH keys in your roots home folder. You can create those on raspbian with
 
    ``sudo su``
+   
    ``ssh-keygen``
    
    Agree to all questions of ssh-keygen.
