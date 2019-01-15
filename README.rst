@@ -31,8 +31,10 @@ Install
 2. Install ansible and sshpass with ``sudo apt-get install ansible sshpass``.
 
 3. Make sure you have SSH keys in your roots home folder. You can create those on raspbian with
-   ``sudo su
-   ssh-keygen``
+
+   ``sudo su``
+   ``ssh-keygen``
+   
    Agree to all questions of ssh-keygen.
 
 4. Download the required ansible rolls:
